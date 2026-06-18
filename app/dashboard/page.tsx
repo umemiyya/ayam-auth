@@ -10,6 +10,7 @@ import Link from "next/link";
 
 import { DASHBOARD_CARDS } from "../_template/content/cards";
 import { DeployButton } from "../_template/components/deploy-button";
+import { DetectForm } from "./components/detect-form";
 
 export default async function DashboardPage() {
   await auth.protect();
@@ -17,15 +18,10 @@ export default async function DashboardPage() {
   return (
     <>
       <main className="max-w-300 w-full mx-auto">
-        <div className="grid grid-cols-[1fr_20.5rem] gap-10 pb-10">
+        <div className="grid gap-10 pb-10">
           <div>
             <header className="flex items-center justify-between w-full h-16 gap-4">
               <div className="flex gap-4">
-                <div className="bg-[#F4F4F5] px-4 py-3 rounded-full inline-flex gap-4">
-                  <ClerkLogo />
-                  <div aria-hidden className="w-px h-6 bg-[#C7C7C8]" />
-                  <NextLogo />
-                </div>
                 <Link
                   href="/"
                   className="flex items-center gap-2 font-medium text-[0.8125rem] rounded-full px-3 py-2 hover:bg-gray-100"
@@ -56,17 +52,10 @@ export default async function DashboardPage() {
                 />
               </div>
             </header>
-            <UserDetails />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center justify-center h-16 w-full">
-              <DeployButton className="h-8" />
-            </div>
-            <CodeSwitcher />
           </div>
         </div>
       </main>
-      <LearnMore cards={DASHBOARD_CARDS} />
+      <DetectForm />
       <Footer />
     </>
   );
