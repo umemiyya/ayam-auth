@@ -252,6 +252,7 @@ const handleProcess = async () => {
           />
         ) : detectionData.result.image ? (
           <img
+            /* @ts-ignore */
             src={`data:image/jpeg;base64,${detectionData.result?.image?.value}`}
             alt="Detection result"
             className="w-full h-auto"
